@@ -4,14 +4,14 @@
  * repo are wired up.
  */
 export const siteConfig = {
-  name: "Velora UI",
+  name: "Oxonompos",
   url: (
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://velora.colorlib.com"
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://oxonompos.vercel.app"
   ).replace(/\/$/, ""),
   github:
     process.env.NEXT_PUBLIC_GITHUB_URL ??
-    "https://github.com/ColorlibHQ/velora-ui",
-  tagline: "Free animated React components & landing templates",
+    "https://github.com/oxobee/oxonompos",
+  tagline: "Modern Animated Components & Landing Templates",
   description:
     "A free, MIT-licensed library of animated shadcn/ui components and complete landing page templates. Built with Next.js 16, Tailwind CSS 4 and Motion — accessible, reduced-motion friendly and tuned for perfect Lighthouse scores.",
 } as const;
