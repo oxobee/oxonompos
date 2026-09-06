@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Yeni Nesil Restoran Yönetim ve POS Sistemi`,
+    default: `${siteConfig.name} | ${siteConfig.slogan}`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,

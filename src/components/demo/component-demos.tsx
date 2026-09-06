@@ -326,7 +326,7 @@ export const componentDemos: Record<string, React.ReactNode> = {
     </div>
   ),
   "browser-mockup": (
-    <BrowserMockup url="velora.dev" className="w-full max-w-md">
+    <BrowserMockup url="app.oxonompos.com" className="w-full max-w-md">
       <div className="flex h-40 items-center justify-center bg-gradient-to-br from-brand-from/20 via-brand-via/15 to-brand-to/20">
         <p className="text-sm text-muted-foreground">Your product here</p>
       </div>

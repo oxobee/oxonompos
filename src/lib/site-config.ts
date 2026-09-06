@@ -4,9 +4,10 @@
 export const siteConfig = {
   name: "Oxonom POS",
   shortName: "Oxonom",
-  tagline: "Restoranınızın tüm operasyonu tek platformda.",
+  slogan: "Yapay zeka destekli işletme yönetim yazılımı",
+  tagline: "İşletmenizin tüm operasyonu tek platformda.",
   description:
-    "Restoran, kafe, bar ve zincir işletmeler için bulut tabanlı yeni nesil POS, masa & sipariş, QR menü, mutfak ekranı (KDS), stok & reçete, CRM, personel ve yapay zeka operasyon platformu.",
+    "Restoran, kafe, bar ve zincir işletmeler için yapay zeka destekli bulut tabanlı yeni nesil POS, masa & sipariş, QR menü, mutfak ekranı (KDS), stok & reçete, CRM, personel ve operasyon yönetim platformu.",
   url: (
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://oxonompos.vercel.app"
   ).replace(/\/$/, ""),

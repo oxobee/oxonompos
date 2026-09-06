@@ -9,7 +9,7 @@ interface BrowserMockupProps extends React.HTMLAttributes<HTMLDivElement> {
  * Browser window frame — traffic lights, URL bar, your content inside.
  */
 export function BrowserMockup({
-  url = "velora.dev",
+  url = "app.oxonompos.com",
   className,
   children,
   ...props

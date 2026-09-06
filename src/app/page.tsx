@@ -103,12 +103,12 @@ export default function HomePage() {
           <BlurFade delay={0} direction="down">
             <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/70 px-4 py-1.5 text-xs font-semibold backdrop-blur text-foreground shadow-sm">
               <Sparkles className="size-3.5 text-primary" />
-              <span>Yeni Nesil Restoran Yönetim Platformu</span>
+              <span>Yapay Zeka Destekli İşletme Yönetim Yazılımı</span>
             </span>
           </BlurFade>
 
           <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-bold tracking-tight text-balance sm:text-6xl lg:text-7xl">
-            Restoranınızın tüm operasyonu{" "}
+            İşletmenizin tüm operasyonu{" "}
             <span className="block mt-1">
               tek platformda:{" "}
               <AnimatedGradientText>
@@ -128,7 +128,7 @@ export default function HomePage() {
 
           <BlurFade delay={0.2}>
             <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground text-pretty leading-relaxed">
-              Oxonom POS; sipariş, masa, ödeme, mutfak, QR menü, stok, personel, müşteri ve raporlama süreçlerini gerçek zamanlı olarak tek bir bulut platformunda birleştirir.
+              Oxonom POS; yapay zeka desteğiyle sipariş, masa, ödeme, mutfak, QR menü, stok, personel, müşteri ve finansal raporlama süreçlerini tek bir akıllı bulut platformunda birleştirir.
             </p>
           </BlurFade>
 

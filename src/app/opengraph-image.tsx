@@ -57,7 +57,7 @@ export default function OpengraphImage() {
               flexWrap: "wrap",
             }}
           >
-            Restoranınızın tüm operasyonu&nbsp;
+            İşletmenizin tüm operasyonu&nbsp;
             <span style={{ color: "#60a5fa" }}>tek platformda.</span>
           </div>
           <div

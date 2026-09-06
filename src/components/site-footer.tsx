@@ -119,8 +119,8 @@ export function SiteFooter() {
             © {currentYear} {siteConfig.name}. Tüm hakları saklıdır.
           </div>
           <div className="flex items-center gap-6">
-            <span>Restoranınızın tüm operasyonu tek platformda.</span>
-            <span>Made for modern hospitality</span>
+            <span>İşletmenizin tüm operasyonu tek platformda.</span>
+            <span>Made for modern businesses</span>
           </div>
         </div>
       </div>

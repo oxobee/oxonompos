@@ -44,7 +44,7 @@ export function HeroMockup({ className }: { className?: string }) {
         className="absolute -inset-8 rounded-[2rem] bg-gradient-to-r from-brand-from via-brand-via to-brand-to opacity-20 blur-3xl"
       />
 
-      <BrowserMockup url="velora.dev/dashboard" className="relative">
+      <BrowserMockup url="app.oxonompos.com" className="relative">
         <BorderBeam size={96} duration={10} />
 
         <div className="flex">
