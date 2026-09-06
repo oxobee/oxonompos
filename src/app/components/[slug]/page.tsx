@@ -28,7 +28,7 @@ export async function generateMetadata({
   const meta = componentsMeta.find((c) => c.slug === slug);
   if (!meta) return {};
   return {
-    title: `${meta.title} — Velora UI`,
+    title: `${meta.title} | Oxonom POS`,
     description: meta.description,
   };
 }

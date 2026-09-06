@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
-import { LanguageProvider } from "@/lib/language-context";
 import { siteConfig } from "@/lib/site-config";
 
 const geistSans = Geist({
@@ -19,33 +18,43 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.tagline}`,
-    template: `%s — ${siteConfig.name}`,
+    default: `${siteConfig.name} | Yeni Nesil Restoran Yönetim ve POS Sistemi`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
-    "shadcn ui",
-    "animated components",
-    "react components",
-    "landing page template",
-    "tailwind css",
-    "motion",
-    "magic ui alternative",
-    "aceternity alternative",
-    "free ui library",
+    "Oxonom POS",
+    "restoran pos sistemi",
+    "bulut pos",
+    "adisyon sistemi",
+    "mutfak ekranı kds",
+    "dijital qr menü",
+    "qr sipariş",
+    "restoran stok reçete",
+    "kafe pos programı",
+    "fast food pos",
+    "restoran yapay zeka",
+    "z raporu restoran",
+    "hospitality pos",
   ],
-  authors: [{ name: siteConfig.name }],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
   openGraph: {
     type: "website",
+    locale: "tr_TR",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: `${siteConfig.name} | Yeni Nesil Restoran Yönetim ve POS Sistemi`,
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: `${siteConfig.name} | Yeni Nesil Restoran Yönetim ve POS Sistemi`,
     description: siteConfig.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -54,17 +63,36 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Oxonom POS",
+    operatingSystem: "Web, iOS, Android, Windows, macOS",
+    applicationCategory: "BusinessApplication",
+    description: siteConfig.description,
+    url: siteConfig.url,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "TRY",
+    },
+  };
+
   return (
     <html
-      lang="en"
+      lang="tr"
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-primary/20 selection:text-primary">
         <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
-          <LanguageProvider>
-            {children}
-          </LanguageProvider>
+          {children}
         </ThemeProvider>
       </body>
     </html>

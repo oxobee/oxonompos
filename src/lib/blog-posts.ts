@@ -8,36 +8,35 @@ export interface BlogPost {
   readingTime: string;
 }
 
-/** Listing metadata for /blog — the content lives in src/app/blog/(posts)/<slug>/page.mdx */
 export const blogPosts: BlogPost[] = [
   {
-    slug: "introducing-velora-ui",
-    title: "Introducing Velora UI: the free tier is the whole product",
+    slug: "yeni-nesil-restoran-yonetimi",
+    title: "Bulut Tabanlı POS ile Restoran Operasyonunda Verimliliği Artırma Rehberi",
     excerpt:
-      "32+ animated shadcn components and a complete multi-page landing template — blog, pricing, auth, changelog — free under MIT. Here's why we're giving away the thing everyone else sells.",
-    date: "July 16, 2026",
-    dateISO: "2026-07-16",
-    category: "Announcements",
-    readingTime: "4 min read",
+      "Eski nesil hantal kasalardan bulut mimarisine geçişin restorana sağladığı hız, mobilite, maliyet avantajı ve denetim kolaylığı.",
+    date: "14 Ağustos 2026",
+    dateISO: "2026-08-14",
+    category: "Restoran Yönetimi",
+    readingTime: "4 dk okuma",
   },
   {
-    slug: "animations-with-receipts",
-    title: "Animations with receipts: publishing the cost of every component",
+    slug: "mutfak-ekrani-kds-rehberi",
+    title: "Mutfak Ekranı (KDS) Nedir ve Kağıt Bilet Karmaşasını Nasıl Bitirir?",
     excerpt:
-      "Animated component libraries love a pretty demo and hate a bundle-size column. Every Velora docs page now shows gzipped size, dependency count and reduced-motion behavior.",
-    date: "July 16, 2026",
-    dateISO: "2026-07-16",
-    category: "Engineering",
-    readingTime: "3 min read",
+      "Mutfak Ekranı Sistemi (KDS) ile hazırlık sürelerini kısaltma, gecikme uyarıları ve istasyon bazlı sipariş yönlendirme.",
+    date: "28 Temmuz 2026",
+    dateISO: "2026-07-28",
+    category: "Mutfak Operasyonu",
+    readingTime: "3 dk okuma",
   },
   {
-    slug: "retheme-in-one-token-block",
-    title: "Rebrand your landing page in one token block",
+    slug: "restoranda-akilli-recete-ve-stok",
+    title: "Satışla Birlikte Otomatik Stok Düşümü: Kaçak ve Fireleri Sıfırlama",
     excerpt:
-      "We moved Velora's entire visual identity from violet to blue by editing seven CSS variables. That's the point: animated components should read your design tokens, not fight them.",
-    date: "July 16, 2026",
-    dateISO: "2026-07-16",
-    category: "Design",
-    readingTime: "3 min read",
+      "Restoranlarda porsiyon ve reçete entegrasyonu ile hammadde maliyeti kontrolü, gramaj takibi ve anlık envanter yönetimi.",
+    date: "10 Temmuz 2026",
+    dateISO: "2026-07-10",
+    category: "Stok Yönetimi",
+    readingTime: "4 dk okuma",
   },
 ];

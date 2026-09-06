@@ -23,9 +23,9 @@ const ink = "oklch(0.145 0 0)";
  */
 export const themePresets: ThemePreset[] = [
   {
-    id: "velora-blue",
-    name: "Velora Blue",
-    description: "The default. A restrained blue-to-sky ramp that reads as a brand, not a template.",
+    id: "oxonom-blue",
+    name: "Oxonom Mavi",
+    description: "Oxonom POS resmi marka rengi. Kurumsal ve modern restoran teknolojisi tonları.",
     light: {
       primary: "oklch(0.546 0.245 263)",
       primaryForeground: white,

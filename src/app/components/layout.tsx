@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 
 import { DocsSidebar } from "@/components/docs/sidebar";
 import { SiteHeader } from "@/components/site-header";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Components — Velora UI",
-  description:
-    "32+ free animated React components for landing pages. Copy the code or install with the shadcn CLI.",
+  title: `Tasarım Bileşenleri | ${siteConfig.name}`,
+  description: "Oxonom POS tasarım sistemi ve arayüz bileşenleri kütüphanesi.",
 };
 
 export default function ComponentsLayout({

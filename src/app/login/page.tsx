@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 
 import { AuthForm } from "@/components/template/auth-form";
 import { AuthVisual } from "@/components/template/auth-visual";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Log in — Velora UI",
-  description: "Log in to your Velora UI account.",
+  title: `Giriş Yap | ${siteConfig.name}`,
+  description: "Oxonom POS yönetim panelinize giriş yapın.",
 };
 
 export default function LoginPage() {

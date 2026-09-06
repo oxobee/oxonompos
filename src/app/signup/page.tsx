@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 
 import { AuthForm } from "@/components/template/auth-form";
 import { AuthVisual } from "@/components/template/auth-visual";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Sign up — Velora UI",
-  description: "Create your Velora UI account.",
+  title: `Kayıt Ol | ${siteConfig.name}`,
+  description: "İşletmeniz için Oxonom POS hesabı oluşturun ve 14 gün ücretsiz deneyin.",
 };
 
 export default function SignupPage() {

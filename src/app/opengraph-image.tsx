@@ -2,14 +2,11 @@ import { ImageResponse } from "next/og";
 
 import { siteConfig } from "@/lib/site-config";
 
-// Prerender the PNG at build time so it ships as a static asset (output: export).
 export const dynamic = "force-static";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt = `${siteConfig.name} — ${siteConfig.tagline}`;
 
-// Branded social card. Self-contained (next/og default font, no network) so
-// it renders at build time and every shared link previews on-brand.
 export default function OpengraphImage() {
   return new ImageResponse(
     (
@@ -21,7 +18,7 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           background:
-            "radial-gradient(1200px 630px at 100% 0%, #1e3a8a 0%, #0a0a0a 55%)",
+            "radial-gradient(1200px 630px at 100% 0%, #1e3a8a 0%, #09090b 55%)",
           color: "white",
           padding: "80px",
           fontFamily: "sans-serif",
@@ -37,42 +34,41 @@ export default function OpengraphImage() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "34px",
-              fontWeight: 700,
+              fontSize: "32px",
+              fontWeight: 800,
             }}
           >
-            V
+            O
           </div>
-          <span style={{ fontSize: "34px", fontWeight: 600 }}>
-            {siteConfig.name}
+          <span style={{ fontSize: "36px", fontWeight: 800, letterSpacing: "-0.02em" }}>
+            OXONOM <span style={{ color: "#60a5fa" }}>POS</span>
           </span>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           <div
             style={{
-              fontSize: "76px",
-              fontWeight: 700,
-              lineHeight: 1.05,
+              fontSize: "64px",
+              fontWeight: 800,
+              lineHeight: 1.1,
               letterSpacing: "-0.03em",
-              maxWidth: "900px",
+              maxWidth: "960px",
               display: "flex",
               flexWrap: "wrap",
             }}
           >
-            Landing pages that feel&nbsp;
-            <span style={{ color: "#60a5fa" }}>effortless.</span>
+            Restoranınızın tüm operasyonu&nbsp;
+            <span style={{ color: "#60a5fa" }}>tek platformda.</span>
           </div>
           <div
             style={{
-              fontSize: "32px",
+              fontSize: "26px",
               color: "#a1a1aa",
-              maxWidth: "820px",
-              lineHeight: 1.3,
+              maxWidth: "860px",
+              lineHeight: 1.35,
             }}
           >
-            Free, MIT-licensed animated components and complete landing
-            templates for React.
+            Bulut tabanlı yeni nesil POS, Masa & Sipariş, Mutfak KDS, QR Menü, Stok Reçete ve Yapay Zeka operasyon sistemi.
           </div>
         </div>
 
@@ -81,15 +77,19 @@ export default function OpengraphImage() {
             display: "flex",
             alignItems: "center",
             gap: "16px",
-            fontSize: "26px",
+            fontSize: "22px",
             color: "#d4d4d8",
           }}
         >
-          <span>32+ components</span>
+          <span>Bulut POS</span>
           <span style={{ color: "#3f3f46" }}>•</span>
-          <span>Complete template</span>
+          <span>Mutfak KDS</span>
           <span style={{ color: "#3f3f46" }}>•</span>
-          <span>$0 forever</span>
+          <span>QR Self-Order</span>
+          <span style={{ color: "#3f3f46" }}>•</span>
+          <span>Stok & Reçete</span>
+          <span style={{ color: "#3f3f46" }}>•</span>
+          <span>7 Bölümlü Z Raporu</span>
         </div>
       </div>
     ),
