@@ -20,6 +20,9 @@ export function SiteHeader() {
           <span>Oxonompos</span>
         </Link>
         <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
+          <Link href="/tema" className="font-medium text-primary transition-colors hover:text-primary/80">
+            {t.nav.tema}
+          </Link>
           <Link href="/components" className="transition-colors hover:text-foreground">
             {t.nav.components}
           </Link>

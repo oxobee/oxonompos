@@ -16,6 +16,14 @@ export interface Translations {
     login: string;
     signup: string;
     starOnGithub: string;
+    tema: string;
+  };
+  home: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    viewTema: string;
+    componentsLink: string;
   };
   hero: {
     badge: string;
@@ -95,6 +103,14 @@ export const translations: Record<Language, Translations> = {
       login: "Giriş Yap",
       signup: "Kayıt Ol",
       starOnGithub: "GitHub'da Yıldızla",
+      tema: "Tema",
+    },
+    home: {
+      badge: "Oxonompos Başlangıç",
+      title: "Oxonompos",
+      subtitle: "Yeni sayfanız hazır. Tüm bileşenler ve tasarım sistemi kullanımınıza sunuldu.",
+      viewTema: "Tema Vitrinini Aç (/tema)",
+      componentsLink: "Bileşenleri Keşfet",
     },
     hero: {
       badge: "v0.1.0 — 32+ Animasyonlu React Bileşeni",
@@ -175,6 +191,14 @@ export const translations: Record<Language, Translations> = {
       login: "Log in",
       signup: "Sign up",
       starOnGithub: "Star on GitHub",
+      tema: "Theme",
+    },
+    home: {
+      badge: "Oxonompos Starter",
+      title: "Oxonompos",
+      subtitle: "Your new page is ready. All components and design systems are at your disposal.",
+      viewTema: "Open Theme Showcase (/tema)",
+      componentsLink: "Explore Components",
     },
     hero: {
       badge: "v0.1.0 — 32+ Animated React Components",
