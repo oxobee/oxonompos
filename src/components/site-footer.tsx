@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Sparkles, ShieldCheck, Cloud, Cpu } from "lucide-react";
+import { Sparkles, ShieldCheck, Cloud, Cpu, Lock } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 
 export function SiteFooter() {
@@ -132,8 +132,15 @@ export function SiteFooter() {
             © {currentYear} {siteConfig.name}. Tüm hakları saklıdır.
           </div>
           <div className="flex items-center gap-6">
-            <span>İşletmenizin tüm operasyonu tek platformda.</span>
-            <span>Made for modern businesses</span>
+            <Link
+              href="/admin"
+              className="text-[11px] text-muted-foreground/60 hover:text-foreground transition-colors flex items-center gap-1.5"
+              title="Yönetici Giriş Paneli"
+            >
+              <Lock className="size-3" />
+              <span>Yönetici Paneli</span>
+            </Link>
+            <span className="hidden sm:inline">İşletmenizin tüm operasyonu tek platformda.</span>
           </div>
         </div>
       </div>

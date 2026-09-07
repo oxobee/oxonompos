@@ -9,6 +9,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { Button } from "@/components/ui/button";
 import { ShimmerButton } from "@/components/velora/shimmer-button";
 import { GridPattern } from "@/components/velora/grid-pattern";
+import { addDemoRequest } from "@/lib/admin-store";
 
 export default function DemoPage() {
   const [formData, setFormData] = useState({
@@ -33,10 +34,25 @@ export default function DemoPage() {
     }
 
     setLoading(true);
+
+    // Save to centralized admin store
+    addDemoRequest({
+      fullName: formData.fullName,
+      businessName: formData.businessName,
+      phone: formData.phone,
+      email: formData.email,
+      businessType: formData.businessType,
+      branchCount: formData.branchCount,
+      city: formData.city,
+      message: formData.message,
+      status: "yeni",
+      priority: parseInt(formData.branchCount) > 2 ? "yuksek" : "orta",
+    });
+
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-    }, 600);
+    }, 500);
   };
 
   return (

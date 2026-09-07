@@ -10,9 +10,26 @@ import { siteConfig } from "@/lib/site-config";
 import { Button } from "@/components/ui/button";
 import { ShimmerButton } from "@/components/velora/shimmer-button";
 import { GridPattern } from "@/components/velora/grid-pattern";
+import { addContactMessage } from "@/lib/admin-store";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleMessageSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !email || !message) return;
+    addContactMessage({
+      fullName: name,
+      email,
+      subject: subject || "Genel İletişim",
+      message,
+    });
+    setSubmitted(true);
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
@@ -98,25 +115,51 @@ export default function ContactPage() {
                     <p className="text-xs text-muted-foreground">Ekibimiz en kısa sürede e-posta adresiniz üzerinden geri dönüş yapacaktır.</p>
                   </div>
                 ) : (
-                  <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-4">
+                  <form onSubmit={handleMessageSubmit} className="space-y-4">
                     <h3 className="text-lg font-bold text-foreground mb-4">Bize Mesaj Gönderin</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
                         <label className="text-xs font-semibold text-foreground">Ad Soyad</label>
-                        <input required placeholder="Adınız" className="w-full h-11 px-4 rounded-xl border border-border bg-background text-sm" />
+                        <input
+                          required
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="Adınız"
+                          className="w-full h-11 px-4 rounded-xl border border-border bg-background text-sm"
+                        />
                       </div>
                       <div className="space-y-1.5">
                         <label className="text-xs font-semibold text-foreground">E-posta</label>
-                        <input required type="email" placeholder="ornek@isletme.com" className="w-full h-11 px-4 rounded-xl border border-border bg-background text-sm" />
+                        <input
+                          required
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="ornek@isletme.com"
+                          className="w-full h-11 px-4 rounded-xl border border-border bg-background text-sm"
+                        />
                       </div>
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-semibold text-foreground">Konu</label>
-                      <input required placeholder="Görüşmek istediğiniz konu" className="w-full h-11 px-4 rounded-xl border border-border bg-background text-sm" />
+                      <input
+                        required
+                        value={subject}
+                        onChange={(e) => setSubject(e.target.value)}
+                        placeholder="Görüşmek istediğiniz konu"
+                        className="w-full h-11 px-4 rounded-xl border border-border bg-background text-sm"
+                      />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-semibold text-foreground">Mesajınız</label>
-                      <textarea required rows={4} placeholder="Detaylar..." className="w-full p-4 rounded-xl border border-border bg-background text-sm" />
+                      <textarea
+                        required
+                        rows={4}
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        placeholder="Detaylar..."
+                        className="w-full p-4 rounded-xl border border-border bg-background text-sm"
+                      />
                     </div>
                     <ShimmerButton className="w-full h-12 text-xs font-bold">
                       <Send className="size-4" />
