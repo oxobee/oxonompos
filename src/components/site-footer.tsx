@@ -132,7 +132,7 @@ export function SiteFooter() {
         {/* Bottom Bar */}
         <div className="mt-14 pt-8 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
           <div>
-            © {currentYear} {siteConfig.name}. Tüm hakları saklıdır.
+            © {currentYear} OXONOM | Oxonom Pos Tüm hakları saklıdır.
           </div>
           <div className="flex items-center gap-6">
             <span>İşletmenizin tüm operasyonu tek platformda.</span>
