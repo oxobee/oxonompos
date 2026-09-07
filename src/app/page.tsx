@@ -150,12 +150,10 @@ export default function HomePage() {
             </div>
           </BlurFade>
 
-          {/* Product Mockup */}
-          <BlurFade delay={0.5} offset={32}>
-            <div className="mt-14 sm:mt-20">
-              <HeroPosMockup />
-            </div>
-          </BlurFade>
+          {/* Apple-Style 3D Scroll Product Mockup */}
+          <div className="mt-8 sm:mt-14 w-full">
+            <HeroPosMockup />
+          </div>
 
           {/* Capability Statistics */}
           <div className="mx-auto mt-16 sm:mt-24 grid max-w-4xl grid-cols-2 gap-6 lg:grid-cols-4 pt-10 border-t border-border/40">
