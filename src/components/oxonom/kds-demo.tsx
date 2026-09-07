@@ -1,214 +1,68 @@
 "use client";
 
-import React, { useState } from "react";
-import { Clock, CookingPot, Check, QrCode, AlertCircle, Volume2 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import React from "react";
+import Image from "next/image";
+import { BrowserMockup } from "@/components/velora/browser-mockup";
+import { BorderBeam } from "@/components/velora/border-beam";
 
-interface KDSTicket {
-  id: string;
-  table: string;
-  stage: "waiting" | "preparing" | "ready";
-  items: string[];
-  minutes: number;
-  isSelfOrder?: boolean;
-}
-
-export function KDSDemo() {
-  const [tickets, setTickets] = useState<KDSTicket[]>([
-    {
-      id: "#201",
-      table: "Masa 04",
-      stage: "waiting",
-      items: ["2x Kasap Köfte", "1x Çoban Salata", "2x Yayık Ayran"],
-      minutes: 2,
-    },
-    {
-      id: "#202",
-      table: "Masa 11",
-      stage: "preparing",
-      items: ["1x Dana Antrikot (Orta)", "1x Mantarlı Risotto"],
-      minutes: 8,
-      isSelfOrder: true,
-    },
-    {
-      id: "#203",
-      table: "Masa 02",
-      stage: "ready",
-      items: ["2x Flat White", "1x San Sebastian Cheesecake"],
-      minutes: 11,
-    },
-  ]);
-
-  const moveStage = (id: string) => {
-    setTickets(
-      tickets.map((t) => {
-        if (t.id === id) {
-          if (t.stage === "waiting") return { ...t, stage: "preparing" };
-          if (t.stage === "preparing") return { ...t, stage: "ready" };
-        }
-        return t;
-      })
-    );
-  };
-
+export function KDSDemo({ className }: { className?: string }) {
   return (
-    <div className="rounded-2xl border border-border/60 bg-card/90 p-5 md:p-7 backdrop-blur text-left shadow-xl">
-      {/* Header bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/50 pb-4">
-        <div className="flex items-center gap-2.5">
-          <div className="size-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
-            <CookingPot className="size-4" />
+    <div className={`relative mx-auto max-w-5xl space-y-6 ${className || ""}`}>
+      {/* Outer Glow */}
+      <div
+        aria-hidden
+        className="absolute -inset-4 sm:-inset-8 rounded-[2.5rem] bg-gradient-to-r from-emerald-500/20 via-primary/20 to-amber-500/20 opacity-35 blur-3xl pointer-events-none"
+      />
+
+      {/* Main KDS Mockup Frame */}
+      <BrowserMockup
+        url="kds.oxonompos.com/kitchen"
+        className="relative shadow-2xl border-border/70 overflow-hidden bg-card/90"
+      >
+        <BorderBeam size={160} duration={12} colorFrom="#10b981" colorTo="#3b82f6" />
+
+        <div className="relative w-full aspect-[16/10] bg-background select-none">
+          <Image
+            src="/images/kds-kitchen-real.png"
+            alt="Oxonom POS - Dijital Mutfak Ekranı (KDS) İstasyonu Arayüzü"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1100px"
+            className="object-contain object-top"
+          />
+        </div>
+      </BrowserMockup>
+
+      {/* 3 Operational Highlights below Mockup */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+        <div className="p-4 rounded-xl border border-border/60 bg-card/60 backdrop-blur space-y-1.5 text-left">
+          <div className="flex items-center gap-2 font-bold text-sm text-foreground">
+            <span className="size-2 rounded-full bg-amber-500 shrink-0" />
+            <span>3 Aşamalı Hazırlık Takibi</span>
           </div>
-          <div>
-            <h3 className="font-bold text-base text-foreground">KDS Mutfak Hazırlık İstasyonu</h3>
-            <p className="text-xs text-muted-foreground">Dokunmatik Mutfak Ekranı Canlı Akışı</p>
-          </div>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            Bekliyor, Hazırlanıyor ve Servise Hazır adımları dokunmatik ekrandan tek tıkla güncellenir.
+          </p>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-500 text-xs font-semibold">
-            <Volume2 className="size-3.5 animate-pulse" />
-            <span>Sesli Bildirim Aktif</span>
+        <div className="p-4 rounded-xl border border-border/60 bg-card/60 backdrop-blur space-y-1.5 text-left">
+          <div className="flex items-center gap-2 font-bold text-sm text-foreground">
+            <span className="size-2 rounded-full bg-rose-500 shrink-0 animate-pulse" />
+            <span>Gecikme &amp; Sesli Alarm</span>
           </div>
-        </div>
-      </div>
-
-      {/* 3 Column KDS Grid */}
-      <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
-        {/* Waiting */}
-        <div className="space-y-3">
-          <div className="flex items-center justify-between px-1">
-            <div className="flex items-center gap-1.5">
-              <span className="size-2 rounded-full bg-amber-500" />
-              <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Bekliyor</span>
-            </div>
-            <span className="text-xs font-bold text-foreground">
-              {tickets.filter((t) => t.stage === "waiting").length} Bilet
-            </span>
-          </div>
-
-          {tickets
-            .filter((t) => t.stage === "waiting")
-            .map((ticket) => (
-              <div
-                key={ticket.id}
-                className="p-4 rounded-xl border border-amber-500/30 bg-background/90 shadow-sm space-y-3"
-              >
-                <div className="flex justify-between items-center">
-                  <span className="font-bold text-sm text-foreground">{ticket.table}</span>
-                  <Badge variant="outline" className="text-[10px] text-amber-500 border-amber-500/40">
-                    <Clock className="size-3 mr-1" /> {ticket.minutes} dk
-                  </Badge>
-                </div>
-
-                <ul className="text-xs space-y-1 text-muted-foreground">
-                  {ticket.items.map((it, idx) => (
-                    <li key={idx} className="font-medium text-foreground">
-                      • {it}
-                    </li>
-                  ))}
-                </ul>
-
-                <button
-                  onClick={() => moveStage(ticket.id)}
-                  className="w-full py-1.5 rounded-lg bg-amber-500/15 hover:bg-amber-500/25 text-amber-500 text-xs font-bold transition-colors"
-                >
-                  Hazırlamaya Başla →
-                </button>
-              </div>
-            ))}
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            Hedef süreyi aşan masalar kırmızı renkle uyarılır ve mutfak personeline sesli bildirim gider.
+          </p>
         </div>
 
-        {/* Preparing */}
-        <div className="space-y-3">
-          <div className="flex items-center justify-between px-1">
-            <div className="flex items-center gap-1.5">
-              <span className="size-2 rounded-full bg-primary" />
-              <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Hazırlanıyor</span>
-            </div>
-            <span className="text-xs font-bold text-foreground">
-              {tickets.filter((t) => t.stage === "preparing").length} Bilet
-            </span>
+        <div className="p-4 rounded-xl border border-border/60 bg-card/60 backdrop-blur space-y-1.5 text-left">
+          <div className="flex items-center gap-2 font-bold text-sm text-foreground">
+            <span className="size-2 rounded-full bg-emerald-500 shrink-0" />
+            <span>Garson &amp; Kasa Senkronu</span>
           </div>
-
-          {tickets
-            .filter((t) => t.stage === "preparing")
-            .map((ticket) => (
-              <div
-                key={ticket.id}
-                className="p-4 rounded-xl border border-primary/40 bg-background/90 shadow-sm space-y-3"
-              >
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center gap-2">
-                    <span className="font-bold text-sm text-foreground">{ticket.table}</span>
-                    {ticket.isSelfOrder && (
-                      <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-500/15 text-emerald-500 font-bold flex items-center gap-1">
-                        <QrCode className="size-2.5" /> Self-Order
-                      </span>
-                    )}
-                  </div>
-                  <Badge variant="outline" className="text-[10px] text-primary border-primary/40">
-                    <Clock className="size-3 mr-1" /> {ticket.minutes} dk
-                  </Badge>
-                </div>
-
-                <ul className="text-xs space-y-1 text-muted-foreground">
-                  {ticket.items.map((it, idx) => (
-                    <li key={idx} className="font-medium text-foreground">
-                      • {it}
-                    </li>
-                  ))}
-                </ul>
-
-                <button
-                  onClick={() => moveStage(ticket.id)}
-                  className="w-full py-1.5 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-bold transition-colors"
-                >
-                  Servise Hazır ✓
-                </button>
-              </div>
-            ))}
-        </div>
-
-        {/* Ready */}
-        <div className="space-y-3">
-          <div className="flex items-center justify-between px-1">
-            <div className="flex items-center gap-1.5">
-              <span className="size-2 rounded-full bg-emerald-500" />
-              <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Servise Hazır</span>
-            </div>
-            <span className="text-xs font-bold text-foreground">
-              {tickets.filter((t) => t.stage === "ready").length} Bilet
-            </span>
-          </div>
-
-          {tickets
-            .filter((t) => t.stage === "ready")
-            .map((ticket) => (
-              <div
-                key={ticket.id}
-                className="p-4 rounded-xl border border-emerald-500/40 bg-emerald-500/5 shadow-sm space-y-3"
-              >
-                <div className="flex justify-between items-center">
-                  <span className="font-bold text-sm text-foreground">{ticket.table}</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-500 font-bold">
-                    Garsona İletildi
-                  </span>
-                </div>
-
-                <ul className="text-xs space-y-1 text-muted-foreground">
-                  {ticket.items.map((it, idx) => (
-                    <li key={idx} className="font-medium text-foreground">
-                      • {it}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="text-[11px] text-center text-emerald-500 font-semibold py-1">
-                  Masa teslimi bekleniyor
-                </div>
-              </div>
-            ))}
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            Mutfakta hazır olarak işaretlenen ürünler garsonun el terminaline ve kasaya gecikmesiz düşer.
+          </p>
         </div>
       </div>
     </div>

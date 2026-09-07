@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sparkles, Image as ImageIcon, FileText, Wand2, ArrowRight, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import { Sparkles, FileText, Wand2, ArrowRight, CheckCircle2 } from "lucide-react";
 import { CompareSlider } from "@/components/velora/compare-slider";
 import { Badge } from "@/components/ui/badge";
 
@@ -54,28 +55,58 @@ export function AIStudioDemo() {
       <div className="mt-6">
         {activeTool === "photo" && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-            <div>
+            <div className="space-y-3">
               <CompareSlider
-                className="h-64 sm:h-72 w-full rounded-xl border border-border shadow-inner"
+                className="h-72 sm:h-80 w-full rounded-xl border border-border shadow-inner overflow-hidden bg-neutral-900"
                 before={
-                  <div className="size-full bg-stone-900/90 text-stone-400 flex flex-col items-center justify-center p-6 text-center">
-                    <span className="text-4xl mb-2">📸</span>
-                    <span className="font-bold text-sm text-stone-200">Telefonla Çekilen Ham Fotoğraf</span>
-                    <span className="text-xs text-stone-400 mt-1 max-w-xs">Yetersiz ışık, gölgeli zemin ve cansız renk tonları</span>
-                    <Badge variant="outline" className="mt-4 text-[10px] border-stone-600 text-stone-400">Önce (Before)</Badge>
+                  <div className="relative size-full select-none">
+                    <Image
+                      src="/images/ai-studio-before.jpg"
+                      alt="Telefonla Çekilen Ham Fotoğraf (Masa Üstü)"
+                      fill
+                      priority
+                      className="object-cover object-center"
+                    />
                   </div>
                 }
                 after={
-                  <div className="size-full bg-gradient-to-br from-primary/20 via-background to-card text-foreground flex flex-col items-center justify-center p-6 text-center border-l-2 border-primary">
-                    <span className="text-4xl mb-2">✨</span>
-                    <span className="font-bold text-sm text-foreground">AI Stüdyo &amp; Katalog Çekimi</span>
-                    <span className="text-xs text-muted-foreground mt-1 max-w-xs">Mükemmel arka plan izolasyonu, stüdyo aydınlatması ve canlı lezzet tonları</span>
-                    <Badge className="mt-4 text-[10px] bg-primary text-primary-foreground">Sonra (After)</Badge>
+                  <div className="relative size-full select-none bg-white">
+                    <Image
+                      src="/images/ai-studio-after.jpg"
+                      alt="AI Stüdyo & Katalog Çekimi (Beyaz Fon)"
+                      fill
+                      priority
+                      className="object-cover object-center"
+                    />
                   </div>
                 }
               />
-              <p className="text-[11px] text-center text-muted-foreground mt-2">
-                Kaydırıcıyı sağa-sola hareket ettirerek yapay zeka dönüşümünü karşılaştırın.
+
+              {/* Bilgilendirme Kutuları - Görsellerin Altında */}
+              <div className="grid grid-cols-2 gap-3 pt-1">
+                <div className="p-3 rounded-xl border border-border/70 bg-card/60">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <span className="size-2 rounded-full bg-amber-500 shrink-0" />
+                    <span className="font-bold text-xs text-foreground">Telefonla Çekilen Ham Fotoğraf</span>
+                  </div>
+                  <p className="text-[11px] text-muted-foreground leading-snug">
+                    Yetersiz ışık, gölgeli zemin ve cansız renk tonları
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-xl border border-primary/30 bg-primary/5">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <span className="size-2 rounded-full bg-primary shrink-0" />
+                    <span className="font-bold text-xs text-primary">AI Stüdyo &amp; Katalog Çekimi</span>
+                  </div>
+                  <p className="text-[11px] text-muted-foreground leading-snug">
+                    Mükemmel arka plan izolasyonu, stüdyo aydınlatması ve canlı lezzet tonları
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-[11px] text-center text-muted-foreground">
+                ↔️ Kaydırıcıyı sağa-sola hareket ettirerek yapay zeka dönüşümünü karşılaştırın.
               </p>
             </div>
 

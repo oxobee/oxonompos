@@ -1,81 +1,77 @@
 "use client";
 
-import React from "react";
-import { QrCode, Sparkles, CheckCircle2, ShoppingBag, Utensils, Bell } from "lucide-react";
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { QrCode, Sparkles, CheckCircle2, ShoppingBag, Utensils, Bell, ArrowRight, Bot } from "lucide-react";
 import { IphoneMockup } from "@/components/velora/iphone-mockup";
+import { QRAiPhoneSimulator } from "@/components/oxonom/qr-ai-phone-simulator";
 
 export function QROrderShowcase() {
+  const [activeTab, setActiveTab] = useState<"menu" | "ai">("menu");
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-left">
       {/* Phone Mockup on Left */}
-      <div className="relative flex justify-center order-2 lg:order-1">
-        <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-emerald-500/20 rounded-full blur-3xl opacity-40 -z-10" />
-        <IphoneMockup className="w-64 sm:w-72 shadow-2xl">
-          <div className="size-full bg-background text-foreground flex flex-col pt-10 pb-4 px-3 overflow-y-auto no-scrollbar select-none text-left">
-            {/* Header in Phone */}
-            <div className="flex items-center justify-between pb-3 border-b border-border/40">
-              <div>
-                <span className="text-[10px] font-bold text-primary uppercase">La Trattoria</span>
-                <h4 className="text-xs font-black">Masa 08 Siparişi</h4>
-              </div>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-500 font-bold">
-                Canlı Menü
-              </span>
-            </div>
+      <div className="relative flex flex-col items-center justify-center order-2 lg:order-1">
+        {/* View Switcher Chips */}
+        <div className="flex items-center gap-1.5 p-1 bg-muted/80 backdrop-blur-sm border border-border/80 rounded-full mb-5 shadow-xs">
+          <button
+            type="button"
+            onClick={() => setActiveTab("menu")}
+            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all flex items-center gap-1.5 ${
+              activeTab === "menu"
+                ? "bg-background text-foreground shadow-xs"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            <Utensils className="size-3.5" />
+            Standart Menü Görünümü
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab("ai")}
+            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all flex items-center gap-1.5 ${
+              activeTab === "ai"
+                ? "bg-gradient-to-r from-primary to-pink-500 text-white shadow-xs"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            <Sparkles className="size-3.5" />
+            Menü Danışmanı AI
+          </button>
+        </div>
 
-            {/* Menu categories pill */}
-            <div className="flex gap-1.5 py-2.5 overflow-x-auto no-scrollbar text-[10px]">
-              <span className="px-2 py-0.5 rounded-full bg-primary text-primary-foreground font-bold">Pizzalar</span>
-              <span className="px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-medium">Makarnalar</span>
-              <span className="px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-medium">İçecekler</span>
-            </div>
-
-            {/* Products in Phone */}
-            <div className="space-y-2 flex-1">
-              <div className="p-2 rounded-xl border border-border/60 bg-card/60 flex justify-between items-center">
-                <div>
-                  <div className="font-bold text-xs">Margherita Pizza</div>
-                  <div className="text-[9px] text-muted-foreground">Taze fesleğen, manda mozzarella</div>
-                  <div className="font-bold text-xs text-primary mt-1">₺280,00</div>
-                </div>
-                <div className="size-6 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs">
-                  +
-                </div>
-              </div>
-
-              <div className="p-2 rounded-xl border border-border/60 bg-card/60 flex justify-between items-center">
-                <div>
-                  <div className="font-bold text-xs">Trüflü Tagliolini</div>
-                  <div className="text-[9px] text-muted-foreground">Yabani mantar, parmesan</div>
-                  <div className="font-bold text-xs text-primary mt-1">₺340,00</div>
-                </div>
-                <div className="size-6 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs">
-                  +
-                </div>
-              </div>
-
-              <div className="p-2 rounded-xl border border-border/60 bg-card/60 flex justify-between items-center">
-                <div>
-                  <div className="font-bold text-xs">San Pellegrino 250ml</div>
-                  <div className="text-[9px] text-muted-foreground">Doğal mineralli su</div>
-                  <div className="font-bold text-xs text-primary mt-1">₺65,00</div>
-                </div>
-                <div className="size-6 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs">
-                  +
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom floating cart */}
-            <div className="mt-3 p-2.5 rounded-xl bg-primary text-primary-foreground shadow-lg flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <ShoppingBag className="size-4" />
-                <span className="text-[11px] font-bold">2 Ürün • ₺620,00</span>
-              </div>
-              <span className="text-[11px] font-black bg-white/20 px-2 py-0.5 rounded">Sipariş Ver →</span>
+        {activeTab === "ai" ? (
+          <div className="w-full flex flex-col items-center">
+            <QRAiPhoneSimulator initialStage="welcome" showOriginalToggle={false} />
+            <div className="mt-3 text-center">
+              <Link
+                href="/moduller/qr-menudeki-yapay-zeka"
+                className="inline-flex items-center gap-1.5 px-3 py-1 bg-background/95 border border-primary/30 text-primary text-[11px] font-semibold rounded-full shadow-md hover:border-primary transition-colors backdrop-blur-xs"
+              >
+                <span>Tüm AI Ekranlarını & Özelliklerini İncele</span>
+                <ArrowRight className="size-3" />
+              </Link>
             </div>
           </div>
-        </IphoneMockup>
+        ) : (
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-pink-500/15 to-emerald-500/20 rounded-full blur-3xl opacity-40 -z-10" />
+            <IphoneMockup className="w-68 sm:w-74">
+              <div className="relative size-full select-none bg-white">
+                <Image
+                  src="/images/qr-menu-mobile-real.png"
+                  alt="Oxonom POS - QR Masadan Sipariş Mobil Arayüzü"
+                  fill
+                  priority
+                  sizes="(max-width: 640px) 272px, 296px"
+                  className="object-cover object-top"
+                />
+              </div>
+            </IphoneMockup>
+          </div>
+        )}
       </div>
 
       {/* Stepper Explanation on Right */}

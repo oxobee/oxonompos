@@ -317,6 +317,55 @@
   }
 }
 
+@keyframes scan-beam {
+  0% {
+    top: 2%;
+    opacity: 0.7;
+  }
+  50% {
+    top: 94%;
+    opacity: 1;
+  }
+  100% {
+    top: 2%;
+    opacity: 0.7;
+  }
+}
+
+.animate-scan-beam {
+  animation: scan-beam 3.2s ease-in-out infinite;
+}
+
+@keyframes flow-beam {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-flow-beam {
+  animation: flow-beam 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes flow-beam-v {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+.animate-flow-beam-v {
+  animation: flow-beam-v 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-meteor,
   .animate-retro-grid,

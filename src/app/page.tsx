@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   Boxes,
@@ -45,6 +46,9 @@ import { NumberTicker } from "@/components/velora/number-ticker";
 import { Particles } from "@/components/velora/particles";
 import { ScrollProgress } from "@/components/velora/scroll-progress";
 import { ShimmerButton } from "@/components/velora/shimmer-button";
+import { SparklesText } from "@/components/velora/sparkles-text";
+import { TextReveal } from "@/components/velora/text-reveal";
+import { TextShimmer } from "@/components/velora/text-shimmer";
 import { Typewriter } from "@/components/velora/typewriter";
 
 import { HeroPosMockup } from "@/components/oxonom/hero-pos-mockup";
@@ -52,7 +56,7 @@ import { ConnectedOperations } from "@/components/oxonom/connected-operations";
 import { SplitPaymentDemo } from "@/components/oxonom/split-payment-demo";
 import { RecipeStockDemo } from "@/components/oxonom/recipe-stock-demo";
 import { KDSDemo } from "@/components/oxonom/kds-demo";
-import { VoiceAlertBox } from "@/components/oxonom/voice-alert-box";
+import { AIAssistantShowcase } from "@/components/oxonom/ai-assistant-showcase";
 import { ZReportShowcase } from "@/components/oxonom/z-report-showcase";
 import { AIStudioDemo } from "@/components/oxonom/ai-studio-demo";
 import { TableManagementPreview } from "@/components/oxonom/table-management-preview";
@@ -234,18 +238,16 @@ export default function HomePage() {
               <BentoCard
                 name="Sipariş & Masa Yönetimi"
                 description="Görsel salon krokisi, masa doluluk süreleri, adisyon bölme ve anlık sipariş aktarımı."
-                className="md:col-span-2"
+                className="md:col-span-2 bg-white text-neutral-900 border-neutral-200"
                 background={
-                  <div className="absolute inset-6 rounded-xl border border-border/60 bg-card/60 p-4 flex flex-col justify-between">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold flex items-center gap-1.5"><Utensils className="size-4 text-primary" /> İç Salon Krokisi</span>
-                      <span className="text-emerald-500 font-semibold">%70 Doluluk</span>
-                    </div>
-                    <div className="grid grid-cols-4 gap-2 pt-2">
-                      <div className="p-2 rounded-lg bg-primary/10 border border-primary/30 text-center text-xs font-bold">M01 (Dolu)</div>
-                      <div className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-center text-xs font-bold">M02 (Boş)</div>
-                      <div className="p-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-center text-xs font-bold">M03 (Hesap)</div>
-                      <div className="p-2 rounded-lg bg-primary/10 border border-primary/30 text-center text-xs font-bold">M04 (Dolu)</div>
+                  <div className="size-full p-2.5 sm:p-3 flex items-center justify-center bg-neutral-50/60">
+                    <div className="relative size-full overflow-hidden rounded-xl border border-neutral-200/80 bg-white shadow-xs">
+                      <Image
+                        src="/images/tables-management-real.png"
+                        alt="Anlık Durum & Masalar - Canlı Masa Doluluğu ve Salon Adisyonları"
+                        fill
+                        className="object-contain object-center"
+                      />
                     </div>
                   </div>
                 }
@@ -254,12 +256,16 @@ export default function HomePage() {
               <BentoCard
                 name="QR Self-Ordering"
                 description="Müşteri telefonundan menüyü açar, garson beklemeden siparişini doğrudan mutfağa gönderir."
-                className="md:col-span-1"
+                className="md:col-span-1 bg-white text-neutral-900 border-neutral-200"
                 background={
-                  <div className="relative flex size-full items-center justify-center pb-20">
-                    <div className="p-4 rounded-2xl bg-primary/15 border border-primary/30 text-center">
-                      <QrCode className="size-10 text-primary mx-auto mb-2" />
-                      <span className="text-[11px] font-bold block">Kamera ile Okut &amp; Sipariş Ver</span>
+                  <div className="size-full p-2.5 sm:p-3 flex items-center justify-center bg-neutral-50/60">
+                    <div className="relative size-full overflow-hidden rounded-xl border border-neutral-200/80 bg-white shadow-xs">
+                      <Image
+                        src="/images/qr-verify-real.png"
+                        alt="Masa Doğrulama - QR Kod ve NFC Masadan Sipariş Ekranı"
+                        fill
+                        className="object-contain object-center"
+                      />
                     </div>
                   </div>
                 }
@@ -268,30 +274,34 @@ export default function HomePage() {
               <BentoCard
                 name="Mutfak Ekranı (KDS)"
                 description="Siparişleri Bekliyor, Hazırlanıyor ve Servise Hazır aşamaları ve gecikme uyarılarıyla takip edin."
-                className="md:col-span-1"
+                className="md:col-span-1 bg-white text-neutral-900 border-neutral-200"
                 background={
-                  <div className="relative flex size-full items-center justify-center pb-20">
-                    <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-center">
-                      <CookingPot className="size-10 text-amber-500 mx-auto mb-2" />
-                      <span className="text-[11px] font-bold block">3 Aşamalı Hazırlık Akışı</span>
+                  <div className="size-full p-2.5 sm:p-3 flex items-center justify-center bg-neutral-50/60">
+                    <div className="relative size-full overflow-hidden rounded-xl border border-neutral-200/80 bg-white shadow-xs">
+                      <Image
+                        src="/images/kds-card-real.png"
+                        alt="Mutfak Ekranı KDS - Masa 4 Sipariş ve Hazırlık Durumu"
+                        fill
+                        className="object-contain object-center"
+                      />
                     </div>
                   </div>
                 }
               />
 
               <BentoCard
-                name="Reçeteli Stok & Envanter"
-                description="Satılan her porsiyon için et, ekmek ve sos gibi hammadde stoklarını gramaj bazında otomatik düşürün."
-                className="md:col-span-2"
+                name="Detaylı analitik grafikler"
+                description="İşletmenizdeki her satış iptal veya iade detaylı analiz edilir anlaşılır hareketli grafiklerle listelenir."
+                className="md:col-span-2 bg-white text-neutral-900 border-neutral-200"
                 background={
-                  <div className="absolute inset-6 rounded-xl border border-border/60 bg-card/60 p-4 flex flex-col justify-between">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold flex items-center gap-1.5"><Boxes className="size-4 text-blue-500" /> Otomatik Reçete Düşümü</span>
-                      <span className="text-blue-500 font-semibold">Anlık Güncelleme</span>
-                    </div>
-                    <div className="flex items-center justify-between text-xs pt-3">
-                      <span>1x Burger Satışı →</span>
-                      <span className="text-muted-foreground font-mono">-1 Ekmek • -150g Köfte • -1 Peynir</span>
+                  <div className="size-full p-2.5 sm:p-3 flex items-center justify-center bg-neutral-50/60">
+                    <div className="relative size-full overflow-hidden rounded-xl border border-neutral-200/80 bg-white shadow-xs">
+                      <Image
+                        src="/images/analytics-dashboard-real.png"
+                        alt="Genel Bakış & İşletme Analitiği - Detaylı Finansal Grafikler ve Satış Trendleri"
+                        fill
+                        className="object-contain object-center"
+                      />
                     </div>
                   </div>
                 }
@@ -335,7 +345,7 @@ export default function HomePage() {
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-bold text-primary uppercase tracking-wider">Dijital Mutfak</span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-              Mutfakta kağıt karmaşasını bitirin.
+              <SparklesText count={7}>Mutfakta kağıt karmaşasını bitirin.</SparklesText>
             </h2>
             <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
               Kaybolan kağıt fişler ve okunamayan sipariş notları tarihe karıştı. 3 aşamalı akıllı Mutfak Ekranı ile servis süresini yarı yarıya düşürün.
@@ -346,10 +356,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. VOICE NOTIFICATION SECTION */}
+      {/* 7. AI RESTAURANT ASSISTANT SECTION */}
       <section className="relative py-20 lg:py-28">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <VoiceAlertBox />
+          <AIAssistantShowcase />
         </div>
       </section>
 
@@ -392,11 +402,15 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-bold text-primary uppercase tracking-wider">Kroki &amp; Doluluk</span>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-              Salonunuzun her noktası canlı kontrol altında.
+            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
+              <TextReveal text="Salonunuzun her noktası canlı kontrol altında." as="span" />
             </h2>
             <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
-              Farklı kat ve bölümleri tek ekranda görün, masaları taşıyın, birleştirin ve doluluk sürelerini izleyin.
+              <TextReveal
+                text="Farklı kat ve bölümleri tek ekranda görün, masaları taşıyın, birleştirin ve doluluk sürelerini izleyin."
+                as="span"
+                delay={0.15}
+              />
             </p>
           </div>
 
@@ -427,7 +441,7 @@ export default function HomePage() {
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-bold text-primary uppercase tracking-wider">Mali Denetim &amp; Mutabakat</span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-              Gün sonu raporundan daha fazlası.
+              <TextShimmer className="font-extrabold">Gün sonu raporundan daha fazlası.</TextShimmer>
             </h2>
             <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
               Kasa açılışından kapanışına kadar 7 kritik bölüm: Nakit mutabakatı, KDV matrahları, iptal logları ve personel satış performansları.

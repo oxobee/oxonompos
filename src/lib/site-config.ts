@@ -18,7 +18,7 @@ export const siteConfig = {
     email: "iletisim@oxonom.com",
     salesEmail: "satis@oxonom.com",
     supportEmail: "destek@oxonom.com",
-    phone: "+90 (850) 000 00 00",
+    phone: "+90 850 309 9901",
     address: "Levent, Büyükdere Cad. No:199, Şişli / İstanbul",
   },
   links: {

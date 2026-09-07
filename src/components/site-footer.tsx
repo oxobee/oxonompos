@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Sparkles, ShieldCheck, Cloud, Cpu } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 
@@ -9,6 +10,7 @@ export function SiteFooter() {
     {
       title: "Ürün Modülleri",
       links: [
+        { text: "Modüller Kataloğu", href: "/moduller" },
         { text: "POS & Satış Terminali", href: "/urun/pos" },
         { text: "Masa & Sipariş Yönetimi", href: "/urun/masa-siparis" },
         { text: "Dijital QR Menü", href: "/urun/qr-menu" },
@@ -52,7 +54,6 @@ export function SiteFooter() {
         { text: "Çerez Politikası", href: "/cerez-politikasi" },
         { text: "Kullanım Koşulları", href: "/kullanim-kosullari" },
         { text: "Demo Talep Et", href: "/demo" },
-        { text: "Giriş Yap", href: "/login" },
         { text: "Hesap Oluştur", href: "/signup" },
       ],
     },
@@ -64,13 +65,25 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
           {/* Brand Info */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-2.5 font-bold tracking-tight text-lg text-foreground">
-              <div className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm shadow-primary/30">
-                <Sparkles className="size-4" />
+            <Link href="/" className="inline-block hover:opacity-90 transition-opacity">
+              <div className="relative h-14 w-[252px] sm:h-18 sm:w-[324px] lg:h-20 lg:w-[360px]">
+                {/* Light Mode: Dark Logo */}
+                <Image
+                  src="/images/oxonompos-logo.png"
+                  alt="Oxonom POS"
+                  fill
+                  sizes="(max-width: 640px) 252px, (max-width: 1024px) 324px, 360px"
+                  className="object-contain object-left dark:hidden"
+                />
+                {/* Dark Mode: Light Logo */}
+                <Image
+                  src="/images/oxonompos-logo-dark.png"
+                  alt="Oxonom POS"
+                  fill
+                  sizes="(max-width: 640px) 252px, (max-width: 1024px) 324px, 360px"
+                  className="object-contain object-left hidden dark:block"
+                />
               </div>
-              <span className="leading-tight font-black tracking-tighter text-xl">
-                OXONOM <span className="text-primary font-bold">POS</span>
-              </span>
             </Link>
 
             <p className="max-w-sm text-sm text-muted-foreground leading-relaxed">

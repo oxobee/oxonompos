@@ -11,7 +11,7 @@ export function BentoGrid({ className, children, ...props }: BentoGridProps) {
     <div
       data-slot="bento-grid"
       className={cn(
-        "grid w-full auto-rows-[22rem] grid-cols-1 gap-4 md:grid-cols-3",
+        "grid w-full auto-rows-[24rem] sm:auto-rows-[26rem] grid-cols-1 gap-5 md:grid-cols-3",
         className
       )}
       {...props}
@@ -37,7 +37,7 @@ export function BentoCard({
   background,
   icon,
   href,
-  cta = "Learn more",
+  cta = "İncele",
   className,
   ...props
 }: BentoCardProps) {
@@ -45,43 +45,43 @@ export function BentoCard({
     <div
       data-slot="bento-card"
       className={cn(
-        "group relative flex flex-col justify-end overflow-hidden rounded-2xl border bg-card transition-shadow duration-300 hover:shadow-xl hover:shadow-primary/5",
+        "group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-neutral-200/80 bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:border-neutral-300 dark:border-neutral-800 dark:bg-card dark:hover:border-neutral-700",
         className
       )}
       {...props}
     >
-      {background && (
-        <div className="absolute inset-0 overflow-hidden transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none">
-          {background}
-        </div>
-      )}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent"
-      />
-      <div
-        className={cn(
-          "pointer-events-none relative z-10 flex flex-col gap-1 p-6 transition-transform duration-300 ease-out motion-reduce:transition-none",
-          href && "group-hover:-translate-y-7"
+      {/* Top Visual Area */}
+      <div className="relative flex-1 w-full overflow-hidden min-h-[14rem] sm:min-h-[15rem] bg-neutral-50/50 dark:bg-neutral-900/30">
+        {background && (
+          <div className="size-full overflow-hidden transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transition-none">
+            {background}
+          </div>
         )}
-      >
-        {icon && (
-          <div className="mb-2 w-fit text-primary [&_svg]:size-8">{icon}</div>
-        )}
-        <h3 className="text-lg font-semibold text-card-foreground">{name}</h3>
-        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
-      {href && (
-        <div className="absolute inset-x-0 bottom-0 z-10 translate-y-full p-6 pt-0 transition-transform duration-300 ease-out group-hover:translate-y-0 motion-reduce:translate-y-0">
-          <a
-            href={href}
-            className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
-          >
-            {cta}
-            <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
+
+      {/* Bottom Content Area */}
+      <div className="relative z-10 flex flex-col justify-center gap-1.5 p-5 sm:p-6 bg-white border-t border-neutral-100 dark:bg-card dark:border-neutral-800/80">
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            {icon && <div className="text-primary [&_svg]:size-5">{icon}</div>}
+            <h3 className="text-base sm:text-lg font-bold tracking-tight text-neutral-900 dark:text-neutral-50">
+              {name}
+            </h3>
+          </div>
+          {href && (
+            <a
+              href={href}
+              className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline whitespace-nowrap"
+            >
+              <span>{cta}</span>
+              <ArrowRightIcon className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+            </a>
+          )}
         </div>
-      )}
+        <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2 leading-relaxed">
+          {description}
+        </p>
+      </div>
     </div>
   );
 }

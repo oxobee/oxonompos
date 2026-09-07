@@ -67,12 +67,25 @@ export default function ContactPage() {
                 </div>
 
                 <div className="p-6 rounded-2xl border border-border/60 bg-card/80 space-y-2 text-left">
+                  <div className="size-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold">
+                    <Phone className="size-5" />
+                  </div>
+                  <h3 className="font-bold text-base text-foreground">Müşteri Hizmetleri &amp; Satış</h3>
+                  <p className="text-xs text-muted-foreground">Doğrudan temsilcimizle görüşün veya bilgi alın.</p>
+                  <a href="tel:+908503099901" className="text-sm font-extrabold text-amber-600 dark:text-amber-400 block hover:underline">
+                    +90 850 309 9901
+                  </a>
+                </div>
+
+                <div className="p-6 rounded-2xl border border-border/60 bg-card/80 space-y-2 text-left">
                   <div className="size-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold">
                     <MapPin className="size-5" />
                   </div>
                   <h3 className="font-bold text-base text-foreground">Merkez Ofis</h3>
                   <p className="text-xs text-muted-foreground">{siteConfig.contact.address}</p>
-                  <span className="text-xs font-semibold text-foreground block">{siteConfig.contact.phone}</span>
+                  <a href="tel:+908503099901" className="text-xs font-semibold text-foreground hover:text-primary block transition-colors">
+                    {siteConfig.contact.phone}
+                  </a>
                 </div>
               </div>
 
