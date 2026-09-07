@@ -8,19 +8,32 @@ export function SiteFooter() {
 
   const footerGroups = [
     {
-      title: "Ürün Modülleri",
+      title: "Restoran & POS Modülleri",
       links: [
         { text: "Modüller Kataloğu", href: "/moduller" },
         { text: "POS & Satış Terminali", href: "/urun/pos" },
-        { text: "Masa & Sipariş Yönetimi", href: "/urun/masa-siparis" },
+        { text: "Görsel Masa & Adisyon", href: "/urun/masa-siparis" },
         { text: "Dijital QR Menü", href: "/urun/qr-menu" },
-        { text: "QR Self-Ordering", href: "/urun/self-order" },
+        { text: "Masadan QR Sipariş (Self-Order)", href: "/urun/self-order" },
         { text: "Mutfak Ekranı (KDS)", href: "/urun/kds" },
-        { text: "Stok & Reçete Takibi", href: "/urun/stok-recete" },
-        { text: "Müşteri CRM & Sadakat", href: "/urun/musteri-crm" },
-        { text: "Personel & Yetki Yönetimi", href: "/urun/personel" },
+        { text: "Reçete & Stok Takibi", href: "/urun/stok-recete" },
+        { text: "Müşteri Sadakat & CRM", href: "/moduller/sadakat-ve-crm-yonetimi" },
         { text: "7 Bölümlü Z Raporu", href: "/urun/z-raporu" },
-        { text: "Oxonom AI Studio", href: "/urun/yapay-zeka" },
+        { text: "Personel & Yetki Yönetimi", href: "/urun/personel" },
+      ],
+    },
+    {
+      title: "Yapay Zeka & Pazarlama",
+      links: [
+        { text: "QR Menüdeki Yapay Zeka", href: "/moduller/qr-menudeki-yapay-zeka" },
+        { text: "Admin Panelinde Yapay Zeka", href: "/moduller/admin-panelindeki-yapay-zeka" },
+        { text: "Yapay Zeka ile Menü İçe Aktar", href: "/moduller/yapay-zeka-ile-menu-ice-aktar" },
+        { text: "Yemek Görseli Profesyonelleştir", href: "/moduller/yapay-zeka-gorseli-profesyonellestir" },
+        { text: "Yapay Zeka Görsel Oluşturucu", href: "/moduller/yapay-zeka-gorsel-olustur" },
+        { text: "Besin Değeri & Açıklama Yazarı", href: "/moduller/besin-degeri-ve-aciklama-yazari" },
+        { text: "Dijital Menü Panosu (TV Ekranı)", href: "/moduller/dijital-menu-panosu" },
+        { text: "Baskıya Hazır Broşür Sihirbazı", href: "/moduller/brosur-sihirbazi" },
+        { text: "Sosyal Medya Sihirbazı", href: "/moduller/sosyal-medya-sihirbazi" },
       ],
     },
     {
@@ -35,26 +48,16 @@ export function SiteFooter() {
       ],
     },
     {
-      title: "Kaynaklar & Rehberler",
+      title: "Kurumsal & Destek",
       links: [
+        { text: "Fiyatlandırma & Modül Seçici", href: "/fiyatlandirma" },
+        { text: "Canlı Demo Talep Et", href: "/demo" },
         { text: "Tüm Özellikler Kataloğu", href: "/ozellikler" },
-        { text: "Fiyatlandırma & Paketler", href: "/fiyatlandirma" },
         { text: "Restoran Yönetim Blogu", href: "/blog" },
-        { text: "Ürün Güncellemeleri", href: "/guncellemeler" },
-        { text: "Sıkça Sorulan Sorular", href: "/#faq" },
         { text: "Hakkımızda", href: "/hakkimizda" },
-        { text: "İletişim & Destek", href: "/iletisim" },
-      ],
-    },
-    {
-      title: "Yasal & Güvenlik",
-      links: [
-        { text: "Gizlilik Politikası", href: "/gizlilik" },
-        { text: "KVKK Aydınlatma Metni", href: "/kvkk" },
-        { text: "Çerez Politikası", href: "/cerez-politikasi" },
+        { text: "İletişim & Müşteri Hizmetleri", href: "/iletisim" },
+        { text: "Gizlilik & KVKK Politikası", href: "/gizlilik" },
         { text: "Kullanım Koşulları", href: "/kullanim-kosullari" },
-        { text: "Demo Talep Et", href: "/demo" },
-        { text: "Hesap Oluştur", href: "/signup" },
       ],
     },
   ];
