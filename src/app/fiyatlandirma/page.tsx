@@ -98,18 +98,10 @@ export default function PricingPage() {
                       {plan.description}
                     </p>
 
-                    {/* Price Tag: "Teklif Alınız" */}
-                    <div className="mt-6 pb-6 border-b border-border/60">
-                      <div className="text-2xl sm:text-3xl font-black text-foreground tracking-tight">
-                        {plan.priceMonthly}
-                      </div>
-                      <span className="text-[11px] text-primary font-semibold block mt-1">
-                        {(plan as any).priceNote || "İşletmenize özel avantajlı fiyat teklifi"}
-                      </span>
-                    </div>
+                    <div className="my-5 border-t border-border/60" />
 
                     {/* Feature List */}
-                    <ul className="mt-6 space-y-2.5 text-xs text-muted-foreground">
+                    <ul className="space-y-2.5 text-xs text-muted-foreground">
                       {plan.features.map((f, i) => {
                         const isSubHeader = f.startsWith("•") || f.endsWith(":");
                         return (
