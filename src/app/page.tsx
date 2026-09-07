@@ -51,6 +51,7 @@ import { TextReveal } from "@/components/velora/text-reveal";
 import { TextShimmer } from "@/components/velora/text-shimmer";
 import { Typewriter } from "@/components/velora/typewriter";
 
+import { Bento3DCard } from "@/components/oxonom/bento-3d-card";
 import { HeroPosMockup } from "@/components/oxonom/hero-pos-mockup";
 import { ConnectedOperations } from "@/components/oxonom/connected-operations";
 import { SplitPaymentDemo } from "@/components/oxonom/split-payment-demo";
@@ -231,15 +232,15 @@ export default function HomePage() {
             </div>
           </BlurFade>
 
-          <BlurFade delay={0.15}>
-            <BentoGrid className="mt-14">
+          <BentoGrid className="mt-14">
+            <Bento3DCard direction="left" className="md:col-span-2">
               <BentoCard
                 name="Sipariş & Masa Yönetimi"
                 description="Görsel salon krokisi, masa doluluk süreleri, adisyon bölme ve anlık sipariş aktarımı."
-                className="md:col-span-2 bg-white text-neutral-900 border-neutral-200"
+                className="size-full bg-white dark:bg-card text-neutral-900 dark:text-neutral-50 border-neutral-200 dark:border-neutral-800 shadow-sm hover:shadow-xl transition-shadow duration-300"
                 background={
-                  <div className="size-full p-2.5 sm:p-3 flex items-center justify-center bg-neutral-50/60">
-                    <div className="relative size-full overflow-hidden rounded-xl border border-neutral-200/80 bg-white shadow-xs">
+                  <div className="size-full p-2.5 sm:p-3 flex items-center justify-center bg-neutral-50/60 dark:bg-neutral-900/40">
+                    <div className="relative size-full overflow-hidden rounded-xl border border-neutral-200/80 dark:border-neutral-700/60 bg-white dark:bg-neutral-900 shadow-xs">
                       <Image
                         src="/images/tables-management-real.png"
                         alt="Anlık Durum & Masalar - Canlı Masa Doluluğu ve Salon Adisyonları"
@@ -250,14 +251,16 @@ export default function HomePage() {
                   </div>
                 }
               />
+            </Bento3DCard>
 
+            <Bento3DCard direction="right" className="md:col-span-1">
               <BentoCard
                 name="QR Self-Ordering"
                 description="Müşteri telefonundan menüyü açar, garson beklemeden siparişini doğrudan mutfağa gönderir."
-                className="md:col-span-1 bg-white text-neutral-900 border-neutral-200"
+                className="size-full bg-white dark:bg-card text-neutral-900 dark:text-neutral-50 border-neutral-200 dark:border-neutral-800 shadow-sm hover:shadow-xl transition-shadow duration-300"
                 background={
-                  <div className="size-full p-2.5 sm:p-3 flex items-center justify-center bg-neutral-50/60">
-                    <div className="relative size-full overflow-hidden rounded-xl border border-neutral-200/80 bg-white shadow-xs">
+                  <div className="size-full p-2.5 sm:p-3 flex items-center justify-center bg-neutral-50/60 dark:bg-neutral-900/40">
+                    <div className="relative size-full overflow-hidden rounded-xl border border-neutral-200/80 dark:border-neutral-700/60 bg-white dark:bg-neutral-900 shadow-xs">
                       <Image
                         src="/images/qr-verify-real.png"
                         alt="Masa Doğrulama - QR Kod ve NFC Masadan Sipariş Ekranı"
@@ -268,14 +271,16 @@ export default function HomePage() {
                   </div>
                 }
               />
+            </Bento3DCard>
 
+            <Bento3DCard direction="left" className="md:col-span-1">
               <BentoCard
                 name="Mutfak Ekranı (KDS)"
                 description="Siparişleri Bekliyor, Hazırlanıyor ve Servise Hazır aşamaları ve gecikme uyarılarıyla takip edin."
-                className="md:col-span-1 bg-white text-neutral-900 border-neutral-200"
+                className="size-full bg-white dark:bg-card text-neutral-900 dark:text-neutral-50 border-neutral-200 dark:border-neutral-800 shadow-sm hover:shadow-xl transition-shadow duration-300"
                 background={
-                  <div className="size-full p-2.5 sm:p-3 flex items-center justify-center bg-neutral-50/60">
-                    <div className="relative size-full overflow-hidden rounded-xl border border-neutral-200/80 bg-white shadow-xs">
+                  <div className="size-full p-2.5 sm:p-3 flex items-center justify-center bg-neutral-50/60 dark:bg-neutral-900/40">
+                    <div className="relative size-full overflow-hidden rounded-xl border border-neutral-200/80 dark:border-neutral-700/60 bg-white dark:bg-neutral-900 shadow-xs">
                       <Image
                         src="/images/kds-card-real.png"
                         alt="Mutfak Ekranı KDS - Masa 4 Sipariş ve Hazırlık Durumu"
@@ -286,14 +291,16 @@ export default function HomePage() {
                   </div>
                 }
               />
+            </Bento3DCard>
 
+            <Bento3DCard direction="right" className="md:col-span-2">
               <BentoCard
                 name="Detaylı analitik grafikler"
                 description="İşletmenizdeki her satış iptal veya iade detaylı analiz edilir anlaşılır hareketli grafiklerle listelenir."
-                className="md:col-span-2 bg-white text-neutral-900 border-neutral-200"
+                className="size-full bg-white dark:bg-card text-neutral-900 dark:text-neutral-50 border-neutral-200 dark:border-neutral-800 shadow-sm hover:shadow-xl transition-shadow duration-300"
                 background={
-                  <div className="size-full p-2.5 sm:p-3 flex items-center justify-center bg-neutral-50/60">
-                    <div className="relative size-full overflow-hidden rounded-xl border border-neutral-200/80 bg-white shadow-xs">
+                  <div className="size-full p-2.5 sm:p-3 flex items-center justify-center bg-neutral-50/60 dark:bg-neutral-900/40">
+                    <div className="relative size-full overflow-hidden rounded-xl border border-neutral-200/80 dark:border-neutral-700/60 bg-white dark:bg-neutral-900 shadow-xs">
                       <Image
                         src="/images/analytics-dashboard-real.png"
                         alt="Genel Bakış & İşletme Analitiği - Detaylı Finansal Grafikler ve Satış Trendleri"
@@ -304,8 +311,8 @@ export default function HomePage() {
                   </div>
                 }
               />
-            </BentoGrid>
-          </BlurFade>
+            </Bento3DCard>
+          </BentoGrid>
         </div>
       </section>
 
