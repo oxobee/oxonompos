@@ -631,6 +631,11 @@ export function SiteHeader() {
               <Link onClick={() => setMobileMenuOpen(false)} href="/iletisim" className="block px-2 py-1 text-sm text-muted-foreground hover:text-primary">İletişim & Destek</Link>
             </div>
 
+            <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-muted/30 border border-border/50">
+              <span className="text-xs font-medium text-muted-foreground">Tema Seçimi (Gündüz / Gece)</span>
+              <ThemeToggle />
+            </div>
+
             <div className="pt-2">
               <Button asChild className="w-full shadow-md font-bold">
                 <Link onClick={() => setMobileMenuOpen(false)} href="/demo">Demo Talep Et</Link>
