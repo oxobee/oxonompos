@@ -397,7 +397,7 @@ export function FoodPhotoEnhanceSimulator({
                     {compareMode === "slider" ? (
                       <div className="relative">
                         <CompareSlider
-                          className="w-full aspect-[4/3] max-h-[380px]"
+                          className="w-full aspect-[4/3]"
                           initial={50}
                           before={
                             <div className="relative w-full h-full bg-neutral-900">
@@ -406,7 +406,7 @@ export function FoodPhotoEnhanceSimulator({
                                 alt="Önce: Masa Çekimi"
                                 fill
                                 priority
-                                className="object-cover object-center"
+                                className="object-contain object-center"
                                 sizes="(max-width: 1024px) 100vw, 500px"
                               />
                               <div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md text-white text-[10px] font-bold border border-white/20 flex items-center gap-1 shadow-md">
@@ -416,13 +416,13 @@ export function FoodPhotoEnhanceSimulator({
                             </div>
                           }
                           after={
-                            <div className="relative w-full h-full bg-neutral-900">
+                            <div className="relative w-full h-full bg-white">
                               <Image
                                 src="/images/food-enhance-after.jpg"
                                 alt="Sonra: Michelin AI Stüdyo"
                                 fill
                                 priority
-                                className="object-cover object-center"
+                                className="object-contain object-center"
                                 sizes="(max-width: 1024px) 100vw, 500px"
                               />
                               <div className="absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full bg-rose-600/90 backdrop-blur-md text-white text-[10px] font-bold border border-white/20 flex items-center gap-1 shadow-md">

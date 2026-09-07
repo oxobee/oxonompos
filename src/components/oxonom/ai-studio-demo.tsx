@@ -57,15 +57,15 @@ export function AIStudioDemo() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
             <div className="space-y-3">
               <CompareSlider
-                className="h-72 sm:h-80 w-full rounded-xl border border-border shadow-inner overflow-hidden bg-neutral-900"
+                className="w-full aspect-[4/3] rounded-xl border border-border shadow-inner overflow-hidden bg-neutral-900"
                 before={
-                  <div className="relative size-full select-none">
+                  <div className="relative size-full select-none bg-neutral-900">
                     <Image
                       src="/images/ai-studio-before.jpg"
                       alt="Telefonla Çekilen Ham Fotoğraf (Masa Üstü)"
                       fill
                       priority
-                      className="object-cover object-center"
+                      className="object-contain object-center"
                     />
                   </div>
                 }
@@ -76,7 +76,7 @@ export function AIStudioDemo() {
                       alt="AI Stüdyo & Katalog Çekimi (Beyaz Fon)"
                       fill
                       priority
-                      className="object-cover object-center"
+                      className="object-contain object-center"
                     />
                   </div>
                 }
